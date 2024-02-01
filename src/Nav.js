@@ -2,7 +2,7 @@ export default function Nav(){
 
     return (
     <>
-   <div style={{display:"flex", backgroundColor:"black", justifyContent:"space-around"}}>
+   <div style={{display:"flex", backgroundColor:"rgb(3,16,34, 0.5)", justifyContent:"space-around"}}>
     <img src="https://moviex-olive.vercel.app/assets/movix-logo-d720c325.svg" alt=""/>
     <div style={{display:"flex", gap:"25px", color:"white"}}>
         <h3>Movies</h3>
