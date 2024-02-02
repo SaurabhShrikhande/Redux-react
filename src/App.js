@@ -4,6 +4,8 @@ import {
   createBrowserRouter,
   RouterProvider
 } from "react-router-dom"
+import Movies from './Movies';
+import TVShows from './TVShows';
 
 function App() {
   const router =  createBrowserRouter([
@@ -12,12 +14,12 @@ function App() {
       element : <Home/>
     },
     {
-      path : "movies",
-      element : <h1>Movies</h1>
+      path : "/movies",
+      element : <Movies/>
     },
     {
-      path : "tvshows",
-      element : <h1>TV Shows</h1>
+      path : "/tvshows",
+      element : <TVShows/>
     }
   ])
 
