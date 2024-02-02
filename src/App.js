@@ -4,7 +4,7 @@ import {
   createBrowserRouter,
   RouterProvider
 } from "react-router-dom"
-import { useEffect } from 'react';
+import { useEffect, useState} from 'react';
 import axios from 'axios';
   import Movies from './Movies';
   import TVShows from './TVShows';
@@ -13,6 +13,8 @@ import axios from 'axios';
 
 
 function App() {
+  const [moviedata , setmoviedata] = useState([]);
+
   useEffect(() => {
     axios.get('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc',
    {
@@ -22,7 +24,10 @@ function App() {
     }
    }
     )
-    .then((res) => console.log(res))
+    .then((res) => {
+      console.log(res.data.results)
+     setmoviedata(res.data.results);
+    } )
     .catch(err => console.log(err))
   
     // const options = {
@@ -59,8 +64,15 @@ function App() {
     <div className="App">
       <RouterProvider router ={router} />
        
-       
-
+       {
+        moviedata.map((item, idx) =>{
+     return (<div key={idx} style={{border:"1px solid black", margin:"10px"}}>
+      <h1>{item.original_title}</h1>
+      <p>{item.overview}</p>
+     </div>)
+        })
+       }
+      
     </div>
   );
 }
